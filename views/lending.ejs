@@ -1,0 +1,163 @@
+<%- include('navbar') %>
+
+
+
+  <section class="py-5 my-md-4">
+
+    <% if (typeof notification !=='undefined' && notification) { %>
+      <div class="container mt-3">
+        <div class="alert border-0 text-white p-3"
+          style="background: rgba(220, 53, 69, 0.15); border: 1px solid rgba(220, 53, 69, 0.3) !important; border-radius: 12px;">
+          <%= notification %>
+        </div>
+      </div>
+      <% } %>
+
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="badge px-3 py-2 mb-3 rounded-pill"
+                style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); color: #00f2fe; text-shadow: 0 0 10px rgba(0, 242, 254, 0.6); font-weight: 600; letter-spacing: 1px;">
+                ✦ NEXT-GEN UNIVERSAL DONATION PLATFORM
+              </div>
+              <h1 class="display-4 mb-3" style="line-height: 1.15; font-weight: 800; color: #ffffff;">
+                Kolektif Kebaikan Lewat <span
+                  style="color: #00f2fe; text-shadow: 0 0 15px rgba(0, 242, 254, 0.4);">Transparansi Digital.</span>
+              </h1>
+              <p class="text-white fs-5 mb-4 col-lg-11" style="font-weight: 300; line-height: 1.6;">
+                Sistem filantropi modern berbasis desentralisasi informasi. Salurkan bantuan darurat, lacak penggunaan
+                anggaran lewat <span class="text-white fw-semibold">Milestones Ledger</span>, dan pantau dampak riil di
+                lapangan.
+              </p>
+              <div class="d-flex gap-3">
+                <a href="#campaigns" class="btn px-4 py-3 rounded-3"
+                  style="background: linear-gradient(135deg, #0575e6 0%, #00f2fe 100%); color: #050814; font-weight: 600; border: none; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); text-decoration: none;">Mulai
+                  Berdonasi</a>
+                <a href="/register" class="btn text-white px-4 py-3 rounded-3"
+                  style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); text-decoration: none;">Galang
+                  Dana</a>
+              </div>
+            </div>
+
+            <div class="col-lg-6 text-center text-lg-end position-relative">
+              <img src="/asset/gambar/Gift-cuate.png" alt="3D Future Donation" class="img-fluid rounded-4 shadow-lg"
+                style="max-height: 420px;">
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <div class="container">
+
+  </div>
+
+  <section id="campaigns" class="py-5">
+
+    <div class="container">
+      <% if (user && user.role==='company' ) { %>
+        <a href="/campaigns/add" class="btn btn-md px-3 py-2 mb-3"
+          style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #050814; font-weight: 600; border: none; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); text-decoration: none;">
+          Buat Kampanye Baru
+        </a>
+        <% } %>
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+              <h2 class="fw-bold text-white mb-1">Kampanye Aktif</h2>
+              <p class="text-white small mb-0">Diproteksi oleh enkripsi data lapangan terverifikasi.</p>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-sm text-white px-3 py-2 dropdown-toggle rounded-3" type="button"
+                data-bs-toggle="dropdown"
+                style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08);">
+                Urutkan Dana
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark border-0 mt-2"
+                style="background: rgba(13, 21, 39, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08);">
+                <li><a class="dropdown-item" href="/?sort=highest">Tertinggi</a></li>
+                <li><a class="dropdown-item" href="/?sort=lowest">Terendah</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <% if (campaigns.length===0) { %>
+              <div class="col-12 text-center py-5">
+                <p class="text-white">Tidak ada kampanye aktif yang ditemukan.</p>
+              </div>
+              <% } else { %>
+                <% campaigns.forEach(campaign=> { %>
+                  <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 text-white p-3 d-flex flex-column justify-content-between"
+                      style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;">
+                      <div>
+                        <img src="/uploads/<%= campaign.image %>" class="card-img-top rounded-3 mb-3"
+                          alt="<%= campaign.title %>"
+                          style="height: 180px; object-fit: cover; border: 1px solid rgba(255,255,255,0.05);">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                          <span class="badge text-capitalize"
+                            style="font-size: 0.75rem; background: rgba(255,255,255,0.08);">
+                            <%= campaign.category %>
+                          </span>
+                          <small
+                            style="font-size: 0.75rem; font-weight: bold; color: #00f2fe; text-shadow: 0 0 10px rgba(0, 242, 254, 0.4); text-transform: uppercase;">
+                            <%= campaign.code %>
+                          </small>
+                        </div>
+                        <h5 class="card-title fw-bold mb-2 text-truncate">
+                          <%= campaign.title %>
+                        </h5>
+                        <p class="card-text text-white small mb-3"
+                          style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-weight: 300; line-height: 1.5;">
+                          <%= campaign.description %>
+                        </p>
+                      </div>
+
+                      <div>
+                        <% let percent=Math.min(Math.round((campaign.currentFunds / campaign.targetFunds) * 100), 100)
+                          || 0; %>
+                          <div class="d-flex justify-content-between text-white small mb-1" style="font-size: 0.8rem;">
+                            <span>Terkumpul: <strong class="text-white">
+                                <%= campaign.currentFunds %>
+                              </strong></span>
+                            <span style="color: #00f2fe;">
+                              <%= percent %>%
+                            </span>
+                          </div>
+                          <div class="progress mb-3" style="height: 4px; background: rgba(255,255,255,0.05);">
+                            <div class="progress-bar" role="progressbar"
+                              style="width: <%= percent %>%; background: linear-gradient(90deg, #0575e6, #00f2fe);"
+                              aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <a href="/campaigns/<%= campaign.id %>"
+                            class="btn btn-sm w-100 rounded-3 py-2 border-0 text-white"
+                            style="background: rgba(255, 255, 255, 0.05); transition: background 0.3s;">
+                            Lihat Transparansi Data ➔
+                          </a>
+
+                          <% if (user && user.id===campaign.userId) { %>
+                            <div class="d-flex gap-2 mt-2">
+                              <a href="/campaigns/<%= campaign.id %>/edit" class="btn btn-sm w-50 py-2"
+                                style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.2); color: #ffc107; border-radius: 8px; text-decoration: none; text-align: center; font-size: 0.85rem;">
+                                Edit
+                              </a>
+                              <a href="/campaigns/<%= campaign.id %>/delete" class="btn btn-sm w-50 py-2"
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ledger kampanye ini?')"
+                                style="background: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.2); color: #ff6b6b; border-radius: 8px; text-decoration: none; text-align: center; font-size: 0.85rem;">
+                                Hapus
+                              </a>
+                            </div>
+                            <% } %>
+                      </div>
+                    </div>
+                  </div>
+                  <% }) %>
+                    <% } %>
+          </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+  </html>

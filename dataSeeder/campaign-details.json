@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Donasi Bencana Banjir Bandang Aceh",
+    "description": "Banjir bandang melanda pemukiman warga akibat curah hujan tinggi. Donasi akan dialokasikan penuh untuk pengadaan sembako darurat, obat-obatan, serta renovasi fasilitas sanitasi utama yang rusak parah.",
+    "targetFunds": 45000000,
+    "currentFunds": 1250000,
+    "category": "Bencana",
+    "status": "Active",
+    "image": "img-banjir.jpg",
+    "milestones": [
+      {
+        "stepNumber": 1,
+        "targetAmount": 15000000,
+        "description": "Pembelian 300 paket sembako dan logistik makanan pokok darurat.",
+        "isVerified": true
+      },
+      {
+        "stepNumber": 2,
+        "targetAmount": 10000000,
+        "description": "Pengadaan posko kesehatan keliling dan obat-obatan balita/lansia.",
+        "isVerified": false
+      },
+      {
+        "stepNumber": 3,
+        "targetAmount": 20000000,
+        "description": "Renovasi dan sterilisasi pipa air bersih warga desa.",
+        "isVerified": false
+      }
+    ],
+    "donations": [
+      {
+        "amount": 250000,
+        "comment": "Bismillah, semoga berkah dan saudara di sana selalu dikuatkan.",
+        "userIndex": 1
+      },
+      {
+        "amount": 1000000,
+        "comment": "Titipan dari keluarga, semoga bermanfaat bagi para relawan lapangan.",
+        "userIndex": 2
+      }
+    ]
+  }
+]

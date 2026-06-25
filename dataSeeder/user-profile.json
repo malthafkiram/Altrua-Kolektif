@@ -1,0 +1,35 @@
+[
+  {
+    "username": "aksi_cepat",
+    "email": "info@aksicepat.org",
+    "password": "password123",
+    "role": "company",
+    "profile": {
+      "fullName": "Yayasan Aksi Cepat",
+      "phoneNumber": "081234567890",
+      "address": "Jl. Sudirman No. 10, Jakarta"
+    }
+  },
+  {
+    "username": "althaf_kiram",
+    "email": "althaf@email.com",
+    "password": "password123",
+    "role": "donate",
+    "profile": {
+      "fullName": "M. Althaf Kiram",
+      "phoneNumber": "085277112233",
+      "address": "Jl. Desa Garot Lr. Durian, Aceh"
+    }
+  },
+  {
+    "username": "budi_s",
+    "email": "budi@email.com",
+    "password": "password123",
+    "role": "donate",
+    "profile": {
+      "fullName": "Budi Santoso",
+      "phoneNumber": "081399887766",
+      "address": "Jl. Malioboro No. 45, Yogyakarta"
+    }
+  }
+]
