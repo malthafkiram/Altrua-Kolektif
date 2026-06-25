@@ -14,7 +14,7 @@
 <body
     style="font-family: 'Inter', sans-serif; background: radial-gradient(circle at 50% 0%, #131e38 0%, #050814 100%); color: #e2e8f0; min-height: 100vh;">
 
-    <!-- NAVBAR SECTION -->
+
     <nav class="navbar navbar-expand-lg py-3 sticky-top"
         style="background: rgba(8, 13, 33, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
         <div class="container">
@@ -37,11 +37,11 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTAINER -->
+
     <div class="container py-5">
         <div class="row g-5 mb-5">
 
-            <!-- SISI KIRI: INFORMASI UTAMA KAMPANYE -->
+
             <div class="col-lg-7">
                 <img src="/uploads/<%= campaign.image %>" class="img-fluid w-100 rounded-4 mb-4 shadow-lg"
                     alt="<%= campaign.title %>"
@@ -83,20 +83,20 @@
                         <%= toRupiah(campaign.currentFunds) %>
                     </div>
 
-                    <!-- FITUR BARU: Virtual Getter Sisa Kebutuhan Dana -->
-                    <div class="mb-2 text-white small">Sisa Kebutuhan Dana (Virtual Getter):</div>
+                    <!-- Virtual Getter Sisa Kebutuhan Dana -->
+                    <div class="mb-2 text-white small">Sisa Kebutuhan Dana :</div>
                     <div class="fs-5 fw-bold text-warning mb-3">
                         <%= toRupiah(campaign.remainingFunds) %>
                     </div>
 
-                    <!-- FITUR BARU: Total Donatur dari Static Method -->
+                    <!-- Total Donatur dari Static Method -->
                     <div class="mb-3 small text-white">
                         Total Kontribusi Masuk: <strong class="text-white">
                             <%= totalDonors %> Transaksi
                         </strong>
                     </div>
 
-                    <!-- Progress Bar Meter -->
+                    <!-- Getter di Model Campaign -->
                     <div class="progress mb-4" style="height: 6px; background: rgba(255,255,255,0.05);">
                         <div class="progress-bar" role="progressbar"
                             style="width: <%= campaign.percent %>%; background: linear-gradient(90deg, #0575e6, #00f2fe);">

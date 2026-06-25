@@ -2,13 +2,6 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static async totalDonationCount(campaignId) {
-      const count = await this.count({
-        where: { campaignId },
-      });
-      return count;
-    }
-
     static associate(models) {
       this.hasOne(models.Profile, {
         foreignKey: "userId",
@@ -40,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: { msg: "email tidak boleh kosong" },
           notNull: { msg: "email tidak boleh kosong" },
+          isEmail: { msg: "format email yang Anda masukkan salah" },
         },
       },
       password: {
